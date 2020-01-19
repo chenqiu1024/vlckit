@@ -385,6 +385,7 @@
 				TargetAttributes = {
 					3A4CF8641A8958DD00324DBF = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = XNCE899229;
 					};
 					3A4CF9151A897D0E00324DBF = {
 						CreatedOnToolsVersion = 7.0;
@@ -396,6 +397,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -595,6 +597,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = XNCE899229;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					TARGET_IOS,
@@ -617,6 +620,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = XNCE899229;
 				GCC_PREPROCESSOR_DEFINITIONS = TARGET_IOS;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

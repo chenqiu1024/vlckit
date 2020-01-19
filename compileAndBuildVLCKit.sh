@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Copyright (C) Pierre d'Herbemont, 2010
 # Copyright (C) Felix Paul Kühne, 2012-2019
 
@@ -1062,6 +1062,18 @@ if [ "$VLCROOT" = "" ]; then
             fi
             cd ..
         else
+            info "Applying patches to vlc.git"
+            cd vlc
+            git checkout -B localBranch ${TESTEDHASH}
+            git branch --set-upstream-to=origin/master localBranch
+            git am ${ROOT_DIR}/libvlc/patches/*.patch
+            if [ $? -ne 0 ]; then
+                git am --abort
+                info "Applying the patches failed, aborting git-am"
+                exit 1
+            fi
+            cd ..
+
             cd vlc
             git fetch --all
             git reset --hard ${TESTEDHASH}
@@ -1091,6 +1103,10 @@ fi
 
 if [ "$SKIPLIBVLCCOMPILATION" != "yes" ]; then
     info "Building tools"
+
+    fetch_python3_path
+    export PATH="${PYTHON3_PATH}:${VLCROOT}/extras/tools/build/bin:${VLCROOT}/contrib/${TARGET}/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+
     spushd ${VLCROOT}/extras/tools
     ./bootstrap
     make
